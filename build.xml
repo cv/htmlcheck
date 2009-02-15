@@ -5,6 +5,7 @@
         <pathelement path="lib/commons-lang-2.4.jar" />
         <pathelement path="lib/jtidy-8.0-SNAPSHOT.jar" />
         <pathelement path="lib/junit-dep-4.5.jar" />
+        <pathelement path="lib/hamcrest-all-1.2RC2.jar" />
     </path>
 
     <target name="clean">

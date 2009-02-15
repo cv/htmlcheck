@@ -5,6 +5,8 @@
 	<classpathentry kind="lib" path="lib/commons-lang-2.4.jar"/>
 	<classpathentry kind="lib" path="lib/jdom.jar"/>
 	<classpathentry kind="lib" path="lib/jtidy-8.0-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="lib/junit-dep-4.5.jar"/>
+	<classpathentry kind="lib" path="lib/hamcrest-all-1.2RC2.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
