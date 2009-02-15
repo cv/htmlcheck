@@ -1,12 +1,18 @@
 package htmlcheck.rules;
 
-import htmlcheck.*;
+import htmlcheck.HtmlCheckError;
+import htmlcheck.Page;
+import htmlcheck.Rule;
 
-import java.io.*;
+import java.io.PrintWriter;
+import java.io.StringReader;
+import java.io.StringWriter;
 import java.util.Arrays;
 import java.util.List;
 
-import org.w3c.tidy.*;
+import org.w3c.tidy.Tidy;
+import org.w3c.tidy.TidyMessage;
+import org.w3c.tidy.TidyMessageListener;
 import org.w3c.tidy.TidyMessage.Level;
 
 public class W3CStandardsComplianceRule implements Rule {

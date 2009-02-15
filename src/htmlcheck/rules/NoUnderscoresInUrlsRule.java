@@ -1,6 +1,9 @@
 package htmlcheck.rules;
 
-import htmlcheck.*;
+import htmlcheck.HtmlCheckError;
+import htmlcheck.LinkCheckRule;
+import htmlcheck.Page;
+import htmlcheck.Selector;
 
 import java.util.List;
 
