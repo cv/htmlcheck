@@ -3,6 +3,7 @@
     <path id="classpath">
         <pathelement path="lib/jdom.jar" />
         <pathelement path="lib/commons-lang-2.4.jar" />
+        <pathelement path="lib/jtidy-8.0-SNAPSHOT.jar" />
     </path>
 
     <target name="clean">
