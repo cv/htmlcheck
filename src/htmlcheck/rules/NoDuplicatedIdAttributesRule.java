@@ -13,14 +13,8 @@ import org.jdom.xpath.XPath;
 
 public class NoDuplicatedIdAttributesRule implements Rule {
 
-	/**
-	 * 
-	 */
 	private final HtmlCheck htmlCheck;
 
-	/**
-	 * @param htmlCheck
-	 */
 	public NoDuplicatedIdAttributesRule(HtmlCheck htmlCheck) {
 		this.htmlCheck = htmlCheck;
 	}

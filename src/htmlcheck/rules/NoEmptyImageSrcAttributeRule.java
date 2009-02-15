@@ -12,14 +12,9 @@ import org.jdom.Element;
 import org.jdom.xpath.XPath;
 
 public class NoEmptyImageSrcAttributeRule implements Rule {
-	/**
-	 * 
-	 */
+
 	private final HtmlCheck htmlCheck;
 
-	/**
-	 * @param htmlCheck
-	 */
 	public NoEmptyImageSrcAttributeRule(HtmlCheck htmlCheck) {
 		this.htmlCheck = htmlCheck;
 	}

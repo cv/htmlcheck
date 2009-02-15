@@ -1,6 +1,3 @@
-/**
- * 
- */
 package htmlcheck.rules;
 
 import htmlcheck.*;
@@ -14,14 +11,8 @@ import org.w3c.tidy.TidyMessage.Level;
 
 public class W3CStandardsComplianceRule implements Rule {
 
-	/**
-	 * 
-	 */
 	private final HtmlCheck htmlCheck;
 
-	/**
-	 * @param htmlCheck
-	 */
 	public W3CStandardsComplianceRule(HtmlCheck htmlCheck) {
 		this.htmlCheck = htmlCheck;
 	}

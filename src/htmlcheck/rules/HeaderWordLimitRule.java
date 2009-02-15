@@ -14,9 +14,6 @@ import org.jdom.xpath.XPath;
 
 public class HeaderWordLimitRule implements Rule {
 
-	/**
-	 * 
-	 */
 	private final HtmlCheck htmlCheck;
 	private final String header;
 	private final int wordLimit;

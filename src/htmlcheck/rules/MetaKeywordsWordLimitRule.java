@@ -14,9 +14,6 @@ import org.jdom.xpath.XPath;
 
 public class MetaKeywordsWordLimitRule implements Rule {
 
-	/**
-	 * 
-	 */
 	private final HtmlCheck htmlCheck;
 	private final int limit;
 

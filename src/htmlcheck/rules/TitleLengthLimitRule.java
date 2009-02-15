@@ -1,6 +1,3 @@
-/**
- * 
- */
 package htmlcheck.rules;
 
 import htmlcheck.*;
@@ -12,9 +9,6 @@ import org.jdom.xpath.XPath;
 
 public class TitleLengthLimitRule implements Rule {
 
-	/**
-	 * 
-	 */
 	private final HtmlCheck htmlCheck;
 	private final int limit;
 

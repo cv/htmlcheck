@@ -1,6 +1,3 @@
-/**
- * 
- */
 package htmlcheck.rules;
 
 
@@ -13,14 +10,9 @@ import org.jdom.Element;
 import org.jdom.xpath.XPath;
 
 public class NoInlineScriptElementRule implements Rule {
-	/**
-	 * 
-	 */
+
 	private final HtmlCheck htmlCheck;
 
-	/**
-	 * @param htmlCheck
-	 */
 	public NoInlineScriptElementRule(HtmlCheck htmlCheck) {
 		this.htmlCheck = htmlCheck;
 	}

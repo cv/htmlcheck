@@ -1,6 +1,3 @@
-/**
- * 
- */
 package htmlcheck.rules;
 
 
@@ -15,14 +12,8 @@ import org.jdom.xpath.XPath;
 
 public class NoEventHandlerAttributesRule implements Rule {
 
-	/**
-	 * 
-	 */
 	private final HtmlCheck htmlCheck;
 
-	/**
-	 * @param htmlCheck
-	 */
 	public NoEventHandlerAttributesRule(HtmlCheck htmlCheck) {
 		this.htmlCheck = htmlCheck;
 	}

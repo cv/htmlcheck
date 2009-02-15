@@ -9,14 +9,9 @@ import htmlcheck.*;
 import java.util.List;
 
 public class NoDeveloperCommentsRule implements Rule {
-	/**
-	 * 
-	 */
+
 	private final HtmlCheck htmlCheck;
 
-	/**
-	 * @param htmlCheck
-	 */
 	public NoDeveloperCommentsRule(HtmlCheck htmlCheck) {
 		this.htmlCheck = htmlCheck;
 	}

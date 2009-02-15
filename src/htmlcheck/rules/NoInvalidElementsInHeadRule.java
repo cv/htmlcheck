@@ -1,6 +1,3 @@
-/**
- * 
- */
 package htmlcheck.rules;
 
 
@@ -14,14 +11,8 @@ import org.jdom.xpath.XPath;
 
 public class NoInvalidElementsInHeadRule implements Rule {
 
-	/**
-	 * 
-	 */
 	private final HtmlCheck htmlCheck;
 
-	/**
-	 * @param htmlCheck
-	 */
 	public NoInvalidElementsInHeadRule(HtmlCheck htmlCheck) {
 		this.htmlCheck = htmlCheck;
 	}

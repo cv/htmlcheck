@@ -1,6 +1,3 @@
-/**
- * 
- */
 package htmlcheck.rules;
 
 
@@ -12,14 +9,9 @@ import org.jdom.Attribute;
 import org.jdom.xpath.XPath;
 
 public class NoUnderscoresInUrlsRule implements Rule {
-	/**
-	 * 
-	 */
+
 	private final HtmlCheck htmlCheck;
 
-	/**
-	 * @param htmlCheck
-	 */
 	NoUnderscoresInUrlsRule(HtmlCheck htmlCheck) {
 		this.htmlCheck = htmlCheck;
 	}

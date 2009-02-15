@@ -12,9 +12,6 @@ import org.jdom.xpath.XPath;
 
 public class MaximumNumberOfElementsRule implements Rule {
 
-	/**
-	 * 
-	 */
 	private final HtmlCheck htmlCheck;
 	private final int limit;
 

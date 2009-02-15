@@ -13,14 +13,9 @@ import org.jdom.JDOMException;
 import org.jdom.xpath.XPath;
 
 public class NoEmptyImageAltAttributeRule implements Rule {
-	/**
-	 * 
-	 */
+
 	private final HtmlCheck htmlCheck;
 
-	/**
-	 * @param htmlCheck
-	 */
 	public NoEmptyImageAltAttributeRule(HtmlCheck htmlCheck) {
 		this.htmlCheck = htmlCheck;
 	}

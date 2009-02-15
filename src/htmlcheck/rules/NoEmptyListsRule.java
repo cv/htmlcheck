@@ -13,14 +13,8 @@ import org.jdom.xpath.XPath;
 
 public class NoEmptyListsRule implements Rule {
 
-	/**
-	 * 
-	 */
 	private final HtmlCheck htmlCheck;
 
-	/**
-	 * @param htmlCheck
-	 */
 	public NoEmptyListsRule(HtmlCheck htmlCheck) {
 		this.htmlCheck = htmlCheck;
 	}

@@ -14,14 +14,8 @@ import org.jdom.xpath.XPath;
 
 public class NoDivsWithSingleBlockLevelChildRule implements Rule {
 
-	/**
-	 * 
-	 */
 	private final HtmlCheck htmlCheck;
 
-	/**
-	 * @param htmlCheck
-	 */
 	public NoDivsWithSingleBlockLevelChildRule(HtmlCheck htmlCheck) {
 		this.htmlCheck = htmlCheck;
 	}

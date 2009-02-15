@@ -1,6 +1,3 @@
-/**
- * 
- */
 package htmlcheck.rules;
 
 
@@ -10,14 +7,8 @@ import java.util.List;
 
 public class NoXmlDeclarationAtBeginningOfFileRule implements Rule {
 
-	/**
-	 * 
-	 */
 	private final HtmlCheck htmlCheck;
 
-	/**
-	 * @param htmlCheck
-	 */
 	public NoXmlDeclarationAtBeginningOfFileRule(HtmlCheck htmlCheck) {
 		this.htmlCheck = htmlCheck;
 	}

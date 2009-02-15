@@ -13,14 +13,9 @@ import org.jdom.Attribute;
 import org.jdom.xpath.XPath;
 
 public class NoBannedInlineCssStyleAttributeRule implements Rule {
-	/**
-	 * 
-	 */
+
 	private final HtmlCheck htmlCheck;
 
-	/**
-	 * @param htmlCheck
-	 */
 	public NoBannedInlineCssStyleAttributeRule(HtmlCheck htmlCheck) {
 		this.htmlCheck = htmlCheck;
 	}

@@ -13,14 +13,8 @@ import org.jdom.xpath.XPath;
 
 public class BodyIdAttributeRequiredRule implements Rule {
 
-	/**
-	 * 
-	 */
 	private final HtmlCheck htmlCheck;
 
-	/**
-	 * @param htmlCheck
-	 */
 	public BodyIdAttributeRequiredRule(HtmlCheck htmlCheck) {
 		this.htmlCheck = htmlCheck;
 	}

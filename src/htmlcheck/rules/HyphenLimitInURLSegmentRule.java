@@ -13,9 +13,6 @@ import org.jdom.xpath.XPath;
 
 public class HyphenLimitInURLSegmentRule implements Rule {
 
-	/**
-	 * 
-	 */
 	private final HtmlCheck htmlCheck;
 	private final int limit;
 

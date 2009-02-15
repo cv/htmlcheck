@@ -1,6 +1,3 @@
-/**
- * 
- */
 package htmlcheck.rules;
 
 
@@ -13,14 +10,8 @@ import org.jdom.xpath.XPath;
 
 public class NoInvalidClassAttributesRule implements Rule {
 	
-	/**
-	 * 
-	 */
 	private final HtmlCheck htmlCheck;
 
-	/**
-	 * @param htmlCheck
-	 */
 	public NoInvalidClassAttributesRule(HtmlCheck htmlCheck) {
 		this.htmlCheck = htmlCheck;
 	}
