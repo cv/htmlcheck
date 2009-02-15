@@ -1,19 +1,25 @@
 package htmlcheck;
 
+import java.util.Collection;
 import java.util.List;
 
+import org.hamcrest.Matcher;
 import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.Matchers.hasItem;
-import static org.hamcrest.Matchers.isEmpty;
+import static org.hamcrest.Matchers.hasSize;
 
 public class HtmlStyleCheckerTests {
 
 	@Test
 	public void shouldAllowAbsoluteUrlsInHrefAttributes() {
 		assertThat(errorsOn("<html><head><title></title></head><body id=\"foo\"><a href=\"http://adestination/to/somewhere\"></a></body></html>"), isEmpty());
+	}
+
+	private <E> Matcher<? super Collection<? extends E>> isEmpty() {
+		return hasSize(0);
 	}
 
 	@Test

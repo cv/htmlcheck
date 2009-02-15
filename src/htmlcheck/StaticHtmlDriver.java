@@ -6,6 +6,10 @@ import org.jdom.Element;
 
 public class StaticHtmlDriver {
 
+	public StaticHtmlDriver(String page) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getDocument() {
 		// TODO Auto-generated method stub
 		return null;
