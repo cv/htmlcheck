@@ -22,7 +22,6 @@
             </manifest>
             <fileset dir="build/classes" />
         </jar>
-        <delete dir="build/classes" />
         <mkdir dir="build/test-classes" />
         <javac debug="true" srcdir="test" destdir="build/test-classes" classpathref="test.classpath" source="1.5" target="1.5" encoding="utf-8"/>
     </target>

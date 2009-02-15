@@ -2,12 +2,9 @@ package htmlcheck;
 
 import htmlcheck.rules.*;
 
-import java.io.IOException;
-import java.io.StringReader;
 import java.util.*;
 
-import org.jdom.*;
-import org.jdom.input.SAXBuilder;
+import org.jdom.Element;
 
 public class HtmlCheck {
 
@@ -38,10 +35,10 @@ public class HtmlCheck {
 
 	public Page page;
 
-	public HtmlCheck(Page driver) {
-		this.page = driver;
+	public HtmlCheck(String document) {
+		this.page = new Page(document);
 	}
-
+	
 	public List<HtmlCheckError> getVerificationErrors() {
 		List<HtmlCheckError> errors = new ArrayList<HtmlCheckError>();
 
@@ -79,7 +76,4 @@ public class HtmlCheck {
 		return errors;
 	}
 
-	public Document toLowerCase(Page browser) throws JDOMException, IOException {
-		return new SAXBuilder().build(new StringReader(browser.getSource().toLowerCase()));
-	}
 }

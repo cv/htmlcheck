@@ -292,7 +292,7 @@ public class HtmlCheckerTests {
 	}
 
 	private List<HtmlCheckError> errorsOn(String page) {
-		HtmlCheck v = new HtmlCheck(new Page(page));
+		HtmlCheck v = new HtmlCheck(page);
 		List<HtmlCheckError> errors = v.getVerificationErrors();
 		return errors;
 	}
