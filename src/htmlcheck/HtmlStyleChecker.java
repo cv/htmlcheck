@@ -124,7 +124,7 @@ public class HtmlStyleChecker {
 		}
 
 		public void addErrorsTo(List<HtmlStyleError> errors) {
-			for (String keywords : new HtmlPage(page.getDocument().toLowerCase()).getElementValues("//meta[@name='keywords']/@content")) {
+			for (String keywords : page.getElementValues("//meta[@name='keywords']/@content")) {
 				String[] splitKeywords = keywords.split("\\W*,\\W*");
 				if (splitKeywords.length > limit) {
 					errors.add(new HtmlStyleError(String.format("EXCESS KEYWORDS: meta keywords is over the %d phrases limit: %s", limit, Arrays.asList(splitKeywords))));

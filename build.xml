@@ -15,7 +15,7 @@
         <javac debug="true" srcdir="src" destdir="build/classes" classpathref="classpath" source="1.5" target="1.5" encoding="utf-8" />
         <jar destfile="build/htmlcheck.jar">
             <manifest>
-                <attribute name="Revision" value="${git.revision" />
+                <attribute name="Revision" value="${git.revision}" />
             </manifest>
             <fileset dir="build/classes" />
         </jar>
