@@ -17,7 +17,7 @@ public class NoInvalidClassAttributesRule implements Rule {
 
     @SuppressWarnings("unchecked")
     public void addErrorsTo(List<HtmlCheckError> errors) throws Exception {
-        List<Attribute> classes = XPath.selectNodes(this.page.getRoot(), "//*/@class");
+        List<Attribute> classes = XPath.selectNodes(page.getRoot(), "//*/@class");
         for (Attribute clazzAttr : classes) {
             String value = clazzAttr.getValue();
             for (String clazz : value.split(" +")) {

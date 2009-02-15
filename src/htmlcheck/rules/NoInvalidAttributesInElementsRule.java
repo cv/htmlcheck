@@ -10,18 +10,18 @@ import org.jdom.xpath.XPath;
 
 public class NoInvalidAttributesInElementsRule implements Rule {
 
+    private final List<String> INVALID = Arrays.asList("//div/@type", "//script/@style", "//script/@class", "//*/@align");
+
     private final Page page;
 
     public NoInvalidAttributesInElementsRule(Page page) {
         this.page = page;
     }
 
-    private final List<String> INVALID = Arrays.asList("//div/@type", "//script/@style", "//script/@class", "//*/@align");
-
     public void addErrorsTo(List<HtmlCheckError> errors) throws Exception {
         for (String invalid : INVALID) {
             @SuppressWarnings("unchecked")
-            List<Attribute> invalidAttrs = XPath.selectNodes(this.page.getRoot(), invalid);
+            List<Attribute> invalidAttrs = XPath.selectNodes(page.getRoot(), invalid);
             for (Attribute attribute : invalidAttrs) {
                 errors.add(new HtmlCheckError(String.format("BAD ATTRIBUTE: %s cannot have the '%s' attribute", Selector.from(attribute.getParent()), attribute.getName())));
             }

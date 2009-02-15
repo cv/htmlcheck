@@ -10,17 +10,17 @@ import org.jdom.xpath.XPath;
 
 public class NoBannedInlineCssStyleAttributeRule implements Rule {
 
+    private final List<String> ALLOWED = Arrays.asList("display", "height", "width", "background-image", "visibility", "top", "left", "bottom", "right");
+
     private final Page page;
 
     public NoBannedInlineCssStyleAttributeRule(Page page) {
         this.page = page;
     }
 
-    private final List<String> ALLOWED = Arrays.asList("display", "height", "width", "background-image", "visibility", "top", "left", "bottom", "right");
-
     @SuppressWarnings("unchecked")
     public void addErrorsTo(List<HtmlCheckError> errors) throws Exception {
-        List<Attribute> attrs = XPath.selectNodes(this.page.getRoot(), "//*/@style");
+        List<Attribute> attrs = XPath.selectNodes(page.getRoot(), "//*/@style");
 
         for (Attribute attr : attrs) {
             String style = attr.getValue();

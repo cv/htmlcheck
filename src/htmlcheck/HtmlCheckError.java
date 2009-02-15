@@ -16,6 +16,11 @@ public class HtmlCheckError extends AssertionError {
         this.element = element;
     }
 
+    @Override
+    public boolean equals(Object that) {
+        return toString().equals(that.toString());
+    }
+
     public Element getElement() {
         return element;
     }
@@ -23,11 +28,6 @@ public class HtmlCheckError extends AssertionError {
     @Override
     public String toString() {
         return "\n" + getMessage();
-    }
-
-    @Override
-    public boolean equals(Object that) {
-        return this.toString().equals(that.toString());
     }
 
 }

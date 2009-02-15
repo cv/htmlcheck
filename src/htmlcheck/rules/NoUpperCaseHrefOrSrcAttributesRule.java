@@ -17,7 +17,7 @@ public class NoUpperCaseHrefOrSrcAttributesRule implements Rule {
 
     @SuppressWarnings("unchecked")
     public void addErrorsTo(List<HtmlCheckError> errors) throws Exception {
-        List<Attribute> links = XPath.selectNodes(this.page.getRoot(), "//*/@src | //*[@href and not(contains(@class, 'external'))]/@href");
+        List<Attribute> links = XPath.selectNodes(page.getRoot(), "//*/@src | //*[@href and not(contains(@class, 'external'))]/@href");
 
         for (Attribute link : links) {
             String value = link.getValue().replaceAll("#.*$", "");

@@ -25,13 +25,13 @@ public class W3CStandardsComplianceRule implements Rule {
 
         tidy.setMessageListener(new TidyMessageListener() {
 
-            private List<Integer> ignored = Arrays.asList(44, // doc type
-                                                              // declaration not
-                                                              // present
+            private final List<Integer> ignored = Arrays.asList(44, // doc type
+                    // declaration not
+                    // present
                     49, // <script> lacks type attribute
                     23, // empty spans
                     66 // element id already defined (we have a specific check
-                       // for that)
+                    // for that)
                     );
 
             public void messageReceived(TidyMessage message) {

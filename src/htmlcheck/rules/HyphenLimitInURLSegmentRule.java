@@ -9,8 +9,8 @@ import org.jdom.xpath.XPath;
 
 public class HyphenLimitInURLSegmentRule implements Rule {
 
-    private final Page page;
     private final int limit;
+    private final Page page;
 
     public HyphenLimitInURLSegmentRule(Page page, int limit) {
         this.page = page;
@@ -19,7 +19,7 @@ public class HyphenLimitInURLSegmentRule implements Rule {
 
     public void addErrorsTo(List<HtmlCheckError> errors) throws Exception {
         @SuppressWarnings("unchecked")
-        List<Attribute> links = XPath.selectNodes(this.page.getRoot(), "//*/@src | //*/@href");
+        List<Attribute> links = XPath.selectNodes(page.getRoot(), "//*/@src | //*/@href");
 
         for (Attribute link : links) {
             for (String segment : link.getValue().split("/")) {

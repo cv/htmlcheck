@@ -17,7 +17,7 @@ public class NoEmptyListsRule implements Rule {
 
     public void addErrorsTo(List<HtmlCheckError> errors) throws Exception {
         @SuppressWarnings("unchecked")
-        List<Element> emptyLists = XPath.selectNodes(this.page.getRoot(), "//ul[count(child::*) = 0] | //ol[count(child::*) = 0]");
+        List<Element> emptyLists = XPath.selectNodes(page.getRoot(), "//ul[count(child::*) = 0] | //ol[count(child::*) = 0]");
         for (Element emptyList : emptyLists) {
             errors.add(new HtmlCheckError(String.format("EMPTY LIST: %s cannot be empty", Selector.from(emptyList))));
         }

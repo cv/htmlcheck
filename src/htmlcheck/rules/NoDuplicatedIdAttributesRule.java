@@ -17,7 +17,7 @@ public class NoDuplicatedIdAttributesRule implements Rule {
 
     @SuppressWarnings("unchecked")
     public void addErrorsTo(List<HtmlCheckError> errors) throws Exception {
-        List<Element> allElementsWithId = XPath.selectNodes(this.page.getRoot(), "//*[@id]");
+        List<Element> allElementsWithId = XPath.selectNodes(page.getRoot(), "//*[@id]");
         Map<String, Element> map = new HashMap<String, Element>();
 
         for (Element current : allElementsWithId) {

@@ -13,7 +13,7 @@ public class NoXmlDeclarationAtBeginningOfFileRule implements Rule {
     }
 
     public void addErrorsTo(List<HtmlCheckError> errors) throws Exception {
-        if (this.page.getSource().startsWith("<?xml")) {
+        if (page.getSource().startsWith("<?xml")) {
             errors.add(new HtmlCheckError("XML PREROLL: page should not start with XML preroll, as it forces IE into standards mode"));
         }
     }

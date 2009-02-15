@@ -18,11 +18,9 @@ public class NoInlineScriptElementRule implements Rule {
 
     @SuppressWarnings("unchecked")
     public void addErrorsTo(List<HtmlCheckError> errors) throws Exception {
-        List<Element> scripts = XPath.selectNodes(this.page.getRoot(), "//script[not(@src)]");
+        List<Element> scripts = XPath.selectNodes(page.getRoot(), "//script[not(@src)]");
         for (Element script : scripts) {
-            errors
-                    .add(new HtmlCheckError(String
-                            .format("BANNED ELEMENT: inline script element found: %s, containing: %s", Selector.from(script), StringUtils.abbreviate(script.getText(), 60))));
+            errors.add(new HtmlCheckError(String.format("BANNED ELEMENT: inline script element found: %s, containing: %s", Selector.from(script), StringUtils.abbreviate(script.getText(), 60))));
         }
     }
 }

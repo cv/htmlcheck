@@ -10,8 +10,8 @@ import org.jdom.xpath.XPath;
 
 public class HeaderWordLimitRule implements Rule {
 
-    private final Page page;
     private final String header;
+    private final Page page;
     private final int wordLimit;
 
     public HeaderWordLimitRule(Page page, String header, int wordLimit) {
@@ -22,7 +22,7 @@ public class HeaderWordLimitRule implements Rule {
 
     public void addErrorsTo(List<HtmlCheckError> errors) throws Exception {
         @SuppressWarnings("unchecked")
-        List<Element> headers = XPath.selectNodes(this.page.getRoot(), "//" + header);
+        List<Element> headers = XPath.selectNodes(page.getRoot(), "//" + header);
 
         for (Element header : headers) {
             int foundLength = header.getText().split("\\W+").length;
