@@ -20,7 +20,7 @@ public class NoEmptyImageAltAttributeRule implements Rule {
 		this.htmlCheck = htmlCheck;
 	}
 
-	public void addErrorsTo(List<HtmlCheckError> errors) {
+	public void addErrorsTo(List<HtmlCheckError> errors) throws Exception {
 		try {
 			@SuppressWarnings("unchecked")
 			List<Element> imgs = XPath.selectNodes(this.htmlCheck.page.getRoot(), "//img[not(@alt) or @alt = '']");

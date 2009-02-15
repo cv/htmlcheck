@@ -164,7 +164,7 @@ public class HtmlCheckerTests {
 		assertThat(errorsOn("<html><head><title></title></head><body id=\"foo\"><a href=\"http://three/to-some-whe-re\"></a></body></html>"), isEmpty());
 		assertThat(errorsOn("<html><head><title></title></head><body id=\"foo\"><a href=\"http://three-with-slash/to-some-whe-re/\"></a></body></html>"), isEmpty());
 
-		assertThat(errorsOn("<html><body id=\"foo\"><a href=\"http://four/to-so-me-whe-re/\"></a></body></html>"), 
+		assertThat(errorsOn("<html><head><title></title></head><body id=\"foo\"><a href=\"http://four/to-so-me-whe-re/\"></a></body></html>"), 
 				hasItem(new HtmlCheckError("EXCESS HYPHENS: more than 3 hyphens used in URL segment: http://four/to-so-me-whe-re/")));
 	}
 

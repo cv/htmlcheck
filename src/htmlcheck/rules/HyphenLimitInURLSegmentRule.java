@@ -34,7 +34,7 @@ public class HyphenLimitInURLSegmentRule implements Rule {
 					}
 				}
 				if (count > limit) {
-					errors.add(new HtmlCheckError(String.format("EXCESS HYPHENS: more than %d hyphens used in URL segment: %s", limit, link)));
+					errors.add(new HtmlCheckError(String.format("EXCESS HYPHENS: more than %d hyphens used in URL segment: %s", limit, link.getValue())));
 				}
 			}
 		}
