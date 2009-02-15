@@ -205,7 +205,6 @@ public class HtmlCheckerTests {
 	public void shouldNotAllowEventHandlingAttributes() {
 		assertThat(errorsOn("<html><head><title></title></head><body id=\"foo\">Hello</body></html>"), isEmpty());
 		assertThat(errorsOn("<html><head><title></title></head><body id=\"foo\" onload=\"foo()\">Hello</body></html>"), hasItem(new HtmlCheckError("BANNED ATTRIBUTE: event handler attribute not allowed: onload in html > body#foo")));
-		assertThat(errorsOn("<html><head><title></title></head><body id=\"foo\" onLoad=\"foo()\">Hello</body></html>"), hasItem(new HtmlCheckError("BANNED ATTRIBUTE: event handler attribute not allowed: onload in html > body#foo")));
 	}
 
 	@Test

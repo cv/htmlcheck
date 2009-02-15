@@ -11,16 +11,16 @@ import org.jdom.xpath.XPath;
 
 public class NoEmptyImageAltAttributeRule implements Rule {
 
-	private final HtmlCheck htmlCheck;
+	private final Page page;
 
-	public NoEmptyImageAltAttributeRule(HtmlCheck htmlCheck) {
-		this.htmlCheck = htmlCheck;
+	public NoEmptyImageAltAttributeRule(Page page) {
+		this.page = page;
 	}
 
 	public void addErrorsTo(List<HtmlCheckError> errors) throws Exception {
 		try {
 			@SuppressWarnings("unchecked")
-			List<Element> imgs = XPath.selectNodes(this.htmlCheck.page.getRoot(), "//img[not(@alt) or @alt = '']");
+			List<Element> imgs = XPath.selectNodes(this.page.getRoot(), "//img[not(@alt) or @alt = '']");
 
 			for (Element img : imgs) {
 				errors.add(new HtmlCheckError(String.format("MISSING ALT: missing or empty alt attribute in %s: %s", HtmlCheck.toSelector(img), img.getAttributeValue("src"))));

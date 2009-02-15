@@ -10,15 +10,15 @@ import org.jdom.xpath.XPath;
 
 public class NoInvalidClassAttributesRule implements Rule {
 	
-	private final HtmlCheck htmlCheck;
+	private final Page page;
 
-	public NoInvalidClassAttributesRule(HtmlCheck htmlCheck) {
-		this.htmlCheck = htmlCheck;
+	public NoInvalidClassAttributesRule(Page page) {
+		this.page = page;
 	}
 
 	@SuppressWarnings("unchecked")
 	public void addErrorsTo(List<HtmlCheckError> errors) throws Exception {
-		List<Attribute> classes = XPath.selectNodes(this.htmlCheck.toLowerCase(this.htmlCheck.page), "//*/@class");
+		List<Attribute> classes = XPath.selectNodes(this.page.getRoot(), "//*/@class");
 		for (Attribute clazzAttr : classes) {
 			String value = clazzAttr.getValue();
 			for (String clazz : value.split(" +")) {

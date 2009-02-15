@@ -10,15 +10,15 @@ import org.jdom.xpath.XPath;
 
 public class NoDuplicatedIdAttributesRule implements Rule {
 
-	private final HtmlCheck htmlCheck;
+	private final Page page;
 
-	public NoDuplicatedIdAttributesRule(HtmlCheck htmlCheck) {
-		this.htmlCheck = htmlCheck;
+	public NoDuplicatedIdAttributesRule(Page page) {
+		this.page = page;
 	}
 
 	@SuppressWarnings("unchecked")
 	public void addErrorsTo(List<HtmlCheckError> errors) throws Exception {
-		List<Element> allElementsWithId = XPath.selectNodes(this.htmlCheck.toLowerCase(this.htmlCheck.page), "//*[@id]");
+		List<Element> allElementsWithId = XPath.selectNodes(this.page.getRoot(), "//*[@id]");
 		Map<String, Element> map = new HashMap<String, Element>();
 		
 		for (Element current : allElementsWithId) {

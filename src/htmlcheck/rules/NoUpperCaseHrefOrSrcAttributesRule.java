@@ -10,16 +10,15 @@ import org.jdom.xpath.XPath;
 
 public class NoUpperCaseHrefOrSrcAttributesRule implements Rule {
 
-	private final HtmlCheck htmlCheck;
+	private final Page page;
 
-	public NoUpperCaseHrefOrSrcAttributesRule(HtmlCheck htmlCheck) {
-		this.htmlCheck = htmlCheck;
+	public NoUpperCaseHrefOrSrcAttributesRule(Page page) {
+		this.page = page;
 	}
 
 	@SuppressWarnings("unchecked")
 	public void addErrorsTo(List<HtmlCheckError> errors) throws Exception {
-		List<Attribute> links = XPath.selectNodes(this.htmlCheck.page.getRoot(), "//*/@src");
-		links.addAll(XPath.selectNodes(this.htmlCheck.page.getRoot(), "//*[@href and not(contains(@class, 'external'))]/@href"));
+		List<Attribute> links = XPath.selectNodes(this.page.getRoot(), "//*/@src | //*[@href and not(contains(@class, 'external'))]/@href");
 
 		for (Attribute link : links) {
 			String value = link.getValue().replaceAll("#.*$", "");

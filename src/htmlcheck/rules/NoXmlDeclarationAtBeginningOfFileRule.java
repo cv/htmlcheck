@@ -7,14 +7,14 @@ import java.util.List;
 
 public class NoXmlDeclarationAtBeginningOfFileRule implements Rule {
 
-	private final HtmlCheck htmlCheck;
+	private final Page page;
 
-	public NoXmlDeclarationAtBeginningOfFileRule(HtmlCheck htmlCheck) {
-		this.htmlCheck = htmlCheck;
+	public NoXmlDeclarationAtBeginningOfFileRule(Page page) {
+		this.page = page;
 	}
 
 	public void addErrorsTo(List<HtmlCheckError> errors) throws Exception {
-		if(this.htmlCheck.page.getSource().startsWith("<?xml")) {
+		if(this.page.getSource().startsWith("<?xml")) {
 			errors.add(new HtmlCheckError("XML PREROLL: page should not start with XML preroll, as it forces IE into standards mode"));
 		}
 	}

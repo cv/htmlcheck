@@ -11,17 +11,17 @@ import org.jdom.xpath.XPath;
 
 public class NoBannedInlineCssStyleAttributeRule implements Rule {
 
-	private final HtmlCheck htmlCheck;
+	private final Page page;
 
-	public NoBannedInlineCssStyleAttributeRule(HtmlCheck htmlCheck) {
-		this.htmlCheck = htmlCheck;
+	public NoBannedInlineCssStyleAttributeRule(Page page) {
+		this.page = page;
 	}
 
 	private final List<String> ALLOWED = Arrays.asList("display", "height", "width", "background-image", "visibility", "top", "left", "bottom", "right");
 
 	@SuppressWarnings("unchecked")
 	public void addErrorsTo(List<HtmlCheckError> errors) throws Exception {
-		List<Attribute> attrs = XPath.selectNodes(this.htmlCheck.toLowerCase(this.htmlCheck.page), "//*/@style");
+		List<Attribute> attrs = XPath.selectNodes(this.page.getRoot(), "//*/@style");
 
 		for (Attribute attr : attrs) {
 			String style = attr.getValue();

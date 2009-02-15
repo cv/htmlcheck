@@ -10,17 +10,17 @@ import org.jdom.xpath.XPath;
 
 public class HyphenLimitInURLSegmentRule implements Rule {
 
-	private final HtmlCheck htmlCheck;
+	private final Page page;
 	private final int limit;
 
-	public HyphenLimitInURLSegmentRule(HtmlCheck htmlCheck, int limit) {
-		this.htmlCheck = htmlCheck;
+	public HyphenLimitInURLSegmentRule(Page page, int limit) {
+		this.page = page;
 		this.limit = limit;
 	}
 
 	public void addErrorsTo(List<HtmlCheckError> errors) throws Exception {
 		@SuppressWarnings("unchecked")
-		List<Attribute> links = XPath.selectNodes(this.htmlCheck.page.getRoot(), "//*/@src | //*/@href");
+		List<Attribute> links = XPath.selectNodes(this.page.getRoot(), "//*/@src | //*/@href");
 
 		for (Attribute link : links) {
 			for (String segment : link.getValue().split("/")) {

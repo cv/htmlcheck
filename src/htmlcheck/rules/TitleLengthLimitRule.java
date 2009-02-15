@@ -9,16 +9,16 @@ import org.jdom.xpath.XPath;
 
 public class TitleLengthLimitRule implements Rule {
 
-	private final HtmlCheck htmlCheck;
+	private final Page page;
 	private final int limit;
 
-	public TitleLengthLimitRule(HtmlCheck htmlCheck, int length) {
-		this.htmlCheck = htmlCheck;
+	public TitleLengthLimitRule(Page page, int length) {
+		this.page = page;
 		this.limit = length;
 	}
 
 	public void addErrorsTo(List<HtmlCheckError> errors) throws Exception {
-		Element title = (Element) XPath.selectSingleNode(this.htmlCheck.page.getRoot(), "//title");
+		Element title = (Element) XPath.selectSingleNode(this.page.getRoot(), "//title");
 		if (title == null || title.getText() == null) {
 			return;
 		}

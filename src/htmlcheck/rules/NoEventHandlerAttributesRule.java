@@ -11,10 +11,10 @@ import org.jdom.xpath.XPath;
 
 public class NoEventHandlerAttributesRule implements Rule {
 
-	private final HtmlCheck htmlCheck;
+	private final Page page;
 
-	public NoEventHandlerAttributesRule(HtmlCheck htmlCheck) {
-		this.htmlCheck = htmlCheck;
+	public NoEventHandlerAttributesRule(Page page) {
+		this.page = page;
 	}
 
 	private final List<String> BANNED = Arrays.asList("onabort", "onblur", "onchange", "onclick", "ondblclick", "onerror", "onfocus", "onkeydown", "onkeypress", "onkeyup", "onload",
@@ -22,7 +22,7 @@ public class NoEventHandlerAttributesRule implements Rule {
 
 	public void addErrorsTo(List<HtmlCheckError> errors) throws Exception {
 		@SuppressWarnings("unchecked")
-		List<Element> elements = XPath.selectNodes(this.htmlCheck.toLowerCase(this.htmlCheck.page), bannedAttributesAsXPath());
+		List<Element> elements = XPath.selectNodes(this.page.getRoot(), bannedAttributesAsXPath());
 
 		for (Element element : elements) {
 			errors.add(new HtmlCheckError(String.format("BANNED ATTRIBUTE: event handler attribute not allowed: %s in %s", bannedAttributeFor(element), HtmlCheck.toSelector(element))));

@@ -11,19 +11,19 @@ import org.jdom.xpath.XPath;
 
 public class HeaderWordLimitRule implements Rule {
 
-	private final HtmlCheck htmlCheck;
+	private final Page page;
 	private final String header;
 	private final int wordLimit;
 
-	public HeaderWordLimitRule(HtmlCheck htmlCheck, String header, int wordLimit) {
-		this.htmlCheck = htmlCheck;
+	public HeaderWordLimitRule(Page page, String header, int wordLimit) {
+		this.page = page;
 		this.header = header;
 		this.wordLimit = wordLimit;
 	}
 
 	public void addErrorsTo(List<HtmlCheckError> errors) throws Exception {
 		@SuppressWarnings("unchecked")
-		List<Element> headers = XPath.selectNodes(this.htmlCheck.page.getRoot(), "//" + header);
+		List<Element> headers = XPath.selectNodes(this.page.getRoot(), "//" + header);
 
 		for (Element header : headers) {
 			int foundLength = header.getText().split("\\W+").length;

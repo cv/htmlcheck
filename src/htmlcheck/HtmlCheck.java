@@ -46,31 +46,31 @@ public class HtmlCheck {
 		List<HtmlCheckError> errors = new ArrayList<HtmlCheckError>();
 
 		try {
-			new NoInvalidElementsInHeadRule(this).addErrorsTo(errors);
-			new NoXmlDeclarationAtBeginningOfFileRule(this).addErrorsTo(errors);
-			new NoBannedInlineCssStyleAttributeRule(this).addErrorsTo(errors);
-			new NoInlineCssStyleElementRule(this).addErrorsTo(errors);
-			new NoEmptyImageSrcAttributeRule(this).addErrorsTo(errors);
-			new NoEmptyImageAltAttributeRule(this).addErrorsTo(errors);
-			new NoDeveloperCommentsRule(this).addErrorsTo(errors);
-			new NoInlineScriptElementRule(this).addErrorsTo(errors);
-			new NoUpperCaseHrefOrSrcAttributesRule(this).addErrorsTo(errors);
-			new MetaKeywordsWordLimitRule(this, 20).addErrorsTo(errors);
-			new HyphenLimitInURLSegmentRule(this, 3).addErrorsTo(errors);
+			new NoInvalidElementsInHeadRule(this.page).addErrorsTo(errors);
+			new NoXmlDeclarationAtBeginningOfFileRule(this.page).addErrorsTo(errors);
+			new NoBannedInlineCssStyleAttributeRule(this.page).addErrorsTo(errors);
+			new NoInlineCssStyleElementRule(this.page).addErrorsTo(errors);
+			new NoEmptyImageSrcAttributeRule(this.page).addErrorsTo(errors);
+			new NoEmptyImageAltAttributeRule(this.page).addErrorsTo(errors);
+			new NoDeveloperCommentsRule(this.page).addErrorsTo(errors);
+			new NoInlineScriptElementRule(this.page).addErrorsTo(errors);
+			new NoUpperCaseHrefOrSrcAttributesRule(this.page).addErrorsTo(errors);
+			new MetaKeywordsWordLimitRule(this.page, 20).addErrorsTo(errors);
+			new HyphenLimitInURLSegmentRule(this.page, 3).addErrorsTo(errors);
 //			new NoUnderscoresInUrlsRule().addErrorsTo(errors);
-			new HeaderWordLimitRule(this, "h1", 7).addErrorsTo(errors);
-			new TitleLengthLimitRule(this, 66).addErrorsTo(errors);
-			new MaximumNumberOfElementsRule(this, 1700).addErrorsTo(errors);
-			new NoEventHandlerAttributesRule(this).addErrorsTo(errors);
-			new NoDivsWithSingleBlockLevelChildRule(this).addErrorsTo(errors);
-			new NoDuplicatedIdAttributesRule(this).addErrorsTo(errors);
-			new NoInvalidIdAttributesRule(this).addErrorsTo(errors);
-			new NoInvalidClassAttributesRule(this).addErrorsTo(errors);
-			new BodyIdAttributeRequiredRule(this).addErrorsTo(errors);
-			new NoEmptyListsRule(this).addErrorsTo(errors);
-			new NoInvalidAttributesInElementsRule(this).addErrorsTo(errors);
-			new W3CStandardsComplianceRule(this).addErrorsTo(errors);
-			new NoExcessivelyNestedIdsRule(this).addErrorsTo(errors);
+			new HeaderWordLimitRule(this.page, "h1", 7).addErrorsTo(errors);
+			new TitleLengthLimitRule(this.page, 66).addErrorsTo(errors);
+			new MaximumNumberOfElementsRule(this.page, 1700).addErrorsTo(errors);
+			new NoEventHandlerAttributesRule(this.page).addErrorsTo(errors);
+			new NoDivsWithSingleBlockLevelChildRule(this.page).addErrorsTo(errors);
+			new NoDuplicatedIdAttributesRule(this.page).addErrorsTo(errors);
+			new NoInvalidIdAttributesRule(this.page).addErrorsTo(errors);
+			new NoInvalidClassAttributesRule(this.page).addErrorsTo(errors);
+			new BodyIdAttributeRequiredRule(this.page).addErrorsTo(errors);
+			new NoEmptyListsRule(this.page).addErrorsTo(errors);
+			new NoInvalidAttributesInElementsRule(this.page).addErrorsTo(errors);
+			new W3CStandardsComplianceRule(this.page).addErrorsTo(errors);
+			new NoExcessivelyNestedIdsRule(this.page).addErrorsTo(errors);
 
 		} catch (Exception e) {
 			throw new RuntimeException(e);

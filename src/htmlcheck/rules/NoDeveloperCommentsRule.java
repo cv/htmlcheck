@@ -7,14 +7,14 @@ import java.util.List;
 
 public class NoDeveloperCommentsRule implements Rule {
 
-	private final HtmlCheck htmlCheck;
+	private final Page page;
 
-	public NoDeveloperCommentsRule(HtmlCheck htmlCheck) {
-		this.htmlCheck = htmlCheck;
+	public NoDeveloperCommentsRule(Page page) {
+		this.page = page;
 	}
 
 	public void addErrorsTo(List<HtmlCheckError> errors) {
-		if (this.htmlCheck.page.getSource().matches(".*?\\<!--[^\\[].*?")) {
+		if (this.page.getSource().matches(".*?\\<!--[^\\[].*?")) {
 			errors.add(new HtmlCheckError(String.format("DEVELOPER COMMENTS: HTML should not contain comments")));
 		}
 	}

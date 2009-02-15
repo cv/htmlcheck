@@ -11,10 +11,10 @@ import org.w3c.tidy.TidyMessage.Level;
 
 public class W3CStandardsComplianceRule implements Rule {
 
-	private final HtmlCheck htmlCheck;
+	private final Page page;
 
-	public W3CStandardsComplianceRule(HtmlCheck htmlCheck) {
-		this.htmlCheck = htmlCheck;
+	public W3CStandardsComplianceRule(Page page) {
+		this.page = page;
 	}
 
 	public void addErrorsTo(final List<HtmlCheckError> errors) throws Exception {
@@ -42,6 +42,6 @@ public class W3CStandardsComplianceRule implements Rule {
 				return !ignored .contains(message.getErrorCode()) && (message.getLevel() == Level.ERROR || message.getLevel() == Level.WARNING);
 			}
 		});
-		tidy.parse(new StringReader(this.htmlCheck.page.getSource()), new StringWriter());
+		tidy.parse(new StringReader(page.getSource()), new StringWriter());
 	}
 }

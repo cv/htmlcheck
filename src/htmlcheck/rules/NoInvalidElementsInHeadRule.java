@@ -11,17 +11,17 @@ import org.jdom.xpath.XPath;
 
 public class NoInvalidElementsInHeadRule implements Rule {
 
-	private final HtmlCheck htmlCheck;
+	private final Page page;
 
-	public NoInvalidElementsInHeadRule(HtmlCheck htmlCheck) {
-		this.htmlCheck = htmlCheck;
+	public NoInvalidElementsInHeadRule(Page page) {
+		this.page = page;
 	}
 
 	private final List<String> allowed = Arrays.asList("meta", "title", "script", "link", "style");
 	
 	public void addErrorsTo(List<HtmlCheckError> errors) throws Exception {
 		@SuppressWarnings("unchecked")
-		List<Element> elements = XPath.selectNodes(this.htmlCheck.toLowerCase(this.htmlCheck.page), "/html/head/*");
+		List<Element> elements = XPath.selectNodes(this.page.getRoot(), "/html/head/*");
 
 		for (Element element : elements) {
 			if(!allowed.contains(element.getName())) {
