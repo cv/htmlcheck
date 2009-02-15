@@ -22,7 +22,7 @@ public class NoUpperCaseHrefOrSrcAttributesRule implements Rule {
         for (Attribute link : links) {
             String value = link.getValue().replaceAll("#.*$", "");
             if (!value.toLowerCase().equals(value)) {
-                errors.add(new HtmlCheckError(String.format("INVALID URL: %s contains upper case characters in href or src attribute: %s", HtmlCheck.toSelector(link.getParent()), value)));
+                errors.add(new HtmlCheckError(String.format("INVALID URL: %s contains upper case characters in href or src attribute: %s", Selector.from(link.getParent()), value)));
             }
         }
     }

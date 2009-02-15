@@ -25,7 +25,7 @@ public class NoEventHandlerAttributesRule implements Rule {
         List<Element> elements = XPath.selectNodes(this.page.getRoot(), bannedAttributesAsXPath());
 
         for (Element element : elements) {
-            errors.add(new HtmlCheckError(String.format("BANNED ATTRIBUTE: event handler attribute not allowed: %s in %s", bannedAttributeFor(element), HtmlCheck.toSelector(element))));
+            errors.add(new HtmlCheckError(String.format("BANNED ATTRIBUTE: event handler attribute not allowed: %s in %s", bannedAttributeFor(element), Selector.from(element))));
         }
     }
 

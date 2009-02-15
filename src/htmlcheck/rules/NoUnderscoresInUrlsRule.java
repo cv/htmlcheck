@@ -9,20 +9,19 @@ import org.jdom.xpath.XPath;
 
 public class NoUnderscoresInUrlsRule implements Rule {
 
-    private final HtmlCheck htmlCheck;
+    private final Page page;
 
-    NoUnderscoresInUrlsRule(HtmlCheck htmlCheck) {
-        this.htmlCheck = htmlCheck;
+    public NoUnderscoresInUrlsRule(Page page) {
+        this.page = page;
     }
 
-    @SuppressWarnings("unchecked")
     public void addErrorsTo(List<HtmlCheckError> errors) throws Exception {
-        List<Attribute> links = XPath.selectNodes(this.htmlCheck.page.getRoot(), "//*/@src");
-        links.addAll(XPath.selectNodes(this.htmlCheck.page.getRoot(), "//*/@href"));
+        @SuppressWarnings("unchecked")
+        List<Attribute> links = XPath.selectNodes(this.page.getRoot(), "//*/@src | //*/@href");
 
         for (Attribute link : links) {
             if (link.getValue().contains("_")) {
-                errors.add(new HtmlCheckError(String.format("INVALID URL: %s contains link with underscore in the URL: %s", HtmlCheck.toSelector(link.getParent()), link.getValue())));
+                errors.add(new HtmlCheckError(String.format("INVALID URL: %s contains link with underscore in the URL: %s", Selector.from(link.getParent()), link.getValue())));
             }
         }
     }

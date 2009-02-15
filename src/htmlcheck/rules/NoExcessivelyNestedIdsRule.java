@@ -20,7 +20,7 @@ public class NoExcessivelyNestedIdsRule implements Rule {
         List<Element> elements = XPath.selectNodes(page.getRoot(), "//body//*[@id]/*[@id]/*[@id]/*[@id]/*[@id]");
 
         for (Element element : elements) {
-            errors.add(new HtmlCheckError(String.format("ID ABUSE: %s has four or more parents which already have id attributes", HtmlCheck.toSelector(element))));
+            errors.add(new HtmlCheckError(String.format("ID ABUSE: %s has four or more parents which already have id attributes", Selector.from(element))));
         }
     }
 }

@@ -27,7 +27,7 @@ public class NoBannedInlineCssStyleAttributeRule implements Rule {
             for (String s : style.split("\\s*;\\s*")) {
                 String i = s.split("\\s*:\\s*")[0];
                 if (!"".equals(i) && !ALLOWED.contains(i)) {
-                    errors.add(new HtmlCheckError(String.format("BANNED ATTRIBUTE: %s uses disallowed inline style: %s", HtmlCheck.toSelector(attr.getParent()), i)));
+                    errors.add(new HtmlCheckError(String.format("BANNED ATTRIBUTE: %s uses disallowed inline style: %s", Selector.from(attr.getParent()), i)));
                 }
             }
         }

@@ -4,36 +4,10 @@ import htmlcheck.rules.*;
 
 import java.util.*;
 
-import org.jdom.Element;
 
 public class HtmlCheck {
 
-    public static String toSelector(Element element) {
-        StringBuilder selector = new StringBuilder();
-        if (element.getParentElement() != null) {
-            selector.append(toSelector(element.getParentElement())).append(" > ");
-        }
-
-        selector.append(element.getName());
-
-        String id = element.getAttributeValue("id");
-        if (id != null) {
-            selector.append('#').append(id);
-        }
-
-        String[] classes = element.getAttributeValue("class", "").split(" +");
-        Arrays.sort(classes);
-
-        for (String clazz : classes) {
-            if (!"".equals(clazz)) {
-                selector.append(".").append(clazz);
-            }
-        }
-
-        return selector.toString();
-    }
-
-    public Page page;
+    private final Page page;
 
     public HtmlCheck(String document) {
         this.page = new Page(document);

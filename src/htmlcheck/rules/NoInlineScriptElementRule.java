@@ -22,7 +22,7 @@ public class NoInlineScriptElementRule implements Rule {
         for (Element script : scripts) {
             errors
                     .add(new HtmlCheckError(String
-                            .format("BANNED ELEMENT: inline script element found: %s, containing: %s", HtmlCheck.toSelector(script), StringUtils.abbreviate(script.getText(), 60))));
+                            .format("BANNED ELEMENT: inline script element found: %s, containing: %s", Selector.from(script), StringUtils.abbreviate(script.getText(), 60))));
         }
     }
 }

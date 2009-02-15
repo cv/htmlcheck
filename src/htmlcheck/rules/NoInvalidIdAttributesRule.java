@@ -21,7 +21,7 @@ public class NoInvalidIdAttributesRule implements Rule {
         for (Attribute id : ids) {
             String value = id.getValue();
             if (!value.matches("[a-z]{1}[a-zA-Z0-9]*")) {
-                errors.add(new HtmlCheckError(String.format("INVALID ID: %s has an invalid id: %s", HtmlCheck.toSelector(id.getParent()), value)));
+                errors.add(new HtmlCheckError(String.format("INVALID ID: %s has an invalid id: %s", Selector.from(id.getParent()), value)));
             }
         }
     }

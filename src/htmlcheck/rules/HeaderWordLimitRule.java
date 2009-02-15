@@ -27,7 +27,7 @@ public class HeaderWordLimitRule implements Rule {
         for (Element header : headers) {
             int foundLength = header.getText().split("\\W+").length;
             if (foundLength > wordLimit) {
-                errors.add(new HtmlCheckError(String.format("HEADER WORD LIMIT: %s should have at most %d words, but had %d (%s)", HtmlCheck.toSelector(header), wordLimit, foundLength, StringUtils
+                errors.add(new HtmlCheckError(String.format("HEADER WORD LIMIT: %s should have at most %d words, but had %d (%s)", Selector.from(header), wordLimit, foundLength, StringUtils
                         .abbreviate(header.getText(), 60))));
             }
         }

@@ -23,7 +23,7 @@ public class NoInvalidAttributesInElementsRule implements Rule {
             @SuppressWarnings("unchecked")
             List<Attribute> invalidAttrs = XPath.selectNodes(this.page.getRoot(), invalid);
             for (Attribute attribute : invalidAttrs) {
-                errors.add(new HtmlCheckError(String.format("BAD ATTRIBUTE: %s cannot have the '%s' attribute", HtmlCheck.toSelector(attribute.getParent()), attribute.getName())));
+                errors.add(new HtmlCheckError(String.format("BAD ATTRIBUTE: %s cannot have the '%s' attribute", Selector.from(attribute.getParent()), attribute.getName())));
             }
         }
     }

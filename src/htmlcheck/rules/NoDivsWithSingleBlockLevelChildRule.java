@@ -25,7 +25,7 @@ public class NoDivsWithSingleBlockLevelChildRule implements Rule {
         for (Element divWithSingleChild : divsWithSingleChild) {
             Element child = (Element) divWithSingleChild.getChildren().get(0);
             if (BLOCK_LEVEL_ELEMENTS.contains(child.getName())) {
-                errors.add(new HtmlCheckError(String.format("UNNECESSARY DIV: %s contains only one block level element: %s", HtmlCheck.toSelector(divWithSingleChild), HtmlCheck.toSelector(child))));
+                errors.add(new HtmlCheckError(String.format("UNNECESSARY DIV: %s contains only one block level element: %s", Selector.from(divWithSingleChild), Selector.from(child))));
             }
         }
     }

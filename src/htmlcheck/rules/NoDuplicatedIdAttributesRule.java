@@ -25,7 +25,7 @@ public class NoDuplicatedIdAttributesRule implements Rule {
             if (previous == null) {
                 map.put(current.getAttribute("id").getValue(), current);
             } else {
-                errors.add(new HtmlCheckError(String.format("DUPLICATED ID: %s has the same id attribute as %s", HtmlCheck.toSelector(previous), HtmlCheck.toSelector(current))));
+                errors.add(new HtmlCheckError(String.format("DUPLICATED ID: %s has the same id attribute as %s", Selector.from(previous), Selector.from(current))));
             }
         }
     }

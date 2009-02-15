@@ -20,7 +20,7 @@ public class NoEmptyImageSrcAttributeRule implements Rule {
         List<Element> imgs = XPath.selectNodes(this.page.getRoot(), "//img[not(@src) or @src = '']");
 
         for (Element img : imgs) {
-            errors.add(new HtmlCheckError(String.format("MISSING SRC: missing or empty src attribute in %s", HtmlCheck.toSelector(img))));
+            errors.add(new HtmlCheckError(String.format("MISSING SRC: missing or empty src attribute in %s", Selector.from(img))));
         }
     }
 }

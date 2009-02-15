@@ -25,7 +25,7 @@ public class TitleLengthLimitRule implements Rule {
 
         int length = title.getText().length();
         if (length > limit) {
-            errors.add(new HtmlCheckError(String.format("EXCESS TITLE: %s should have at most %d characters (but had %d)", HtmlCheck.toSelector(title), limit, length)));
+            errors.add(new HtmlCheckError(String.format("EXCESS TITLE: %s should have at most %d characters (but had %d)", Selector.from(title), limit, length)));
         }
     }
 }

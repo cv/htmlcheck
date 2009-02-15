@@ -22,7 +22,7 @@ public class NoInvalidClassAttributesRule implements Rule {
             String value = clazzAttr.getValue();
             for (String clazz : value.split(" +")) {
                 if (!"".equals(clazz) && !clazz.matches("[a-z]{1}[a-zA-Z0-9]*")) {
-                    errors.add(new HtmlCheckError(String.format("INVALID CLASS: %s has an invalid class: %s", HtmlCheck.toSelector(clazzAttr.getParent()), clazz)));
+                    errors.add(new HtmlCheckError(String.format("INVALID CLASS: %s has an invalid class: %s", Selector.from(clazzAttr.getParent()), clazz)));
                 }
             }
         }

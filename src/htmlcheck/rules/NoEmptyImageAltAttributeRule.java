@@ -22,7 +22,7 @@ public class NoEmptyImageAltAttributeRule implements Rule {
             List<Element> imgs = XPath.selectNodes(this.page.getRoot(), "//img[not(@alt) or @alt = '']");
 
             for (Element img : imgs) {
-                errors.add(new HtmlCheckError(String.format("MISSING ALT: missing or empty alt attribute in %s: %s", HtmlCheck.toSelector(img), img.getAttributeValue("src"))));
+                errors.add(new HtmlCheckError(String.format("MISSING ALT: missing or empty alt attribute in %s: %s", Selector.from(img), img.getAttributeValue("src"))));
             }
         } catch (JDOMException e) {
             throw new RuntimeException(e);

@@ -20,7 +20,7 @@ public class NoInlineCssStyleElementRule implements Rule {
     public void addErrorsTo(List<HtmlCheckError> errors) throws Exception {
         List<Element> styles = XPath.selectNodes(this.page.getRoot(), "//style");
         for (Element style : styles) {
-            errors.add(new HtmlCheckError(String.format("BANNED ELEMENT: inline style element found: %s, containing: %s", HtmlCheck.toSelector(style), StringUtils.abbreviate(style.getText(), 60))));
+            errors.add(new HtmlCheckError(String.format("BANNED ELEMENT: inline style element found: %s, containing: %s", Selector.from(style), StringUtils.abbreviate(style.getText(), 60))));
         }
     }
 }
