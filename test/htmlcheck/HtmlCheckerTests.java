@@ -24,14 +24,14 @@ public class HtmlCheckerTests {
 	}
 
 	@Test
-	@Ignore("not implemented - app doesn't currently resolve its own URLs")
+	@Ignore("not implemented")
 	public void shouldNotAllowRelativeUrlsInSrcAttributes() {
 		assertThat(errorsOn("<html><body id=\"foo\"><script src=\"/bar.js\"></script></body></html>"), hasItem(new HtmlCheckError(
 				"html > body > script links to 'adestination/to/somewhere', which is not absolute")));
 	}
 
 	@Test
-	@Ignore("not implemented - app doesn't currently resolve its own URLs")
+	@Ignore("not implemented")
 	public void shouldNotAllowRelativeUrlsInHrefAttributes() {
 		assertThat(errorsOn("<html><body id=\"foo\"><a href=\"adestination/to/somewhere\"></a></body></html>"), hasItem(new HtmlCheckError(
 				"html > body > a links to 'adestination/to/somewhere', which is not absolute")));
