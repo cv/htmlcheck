@@ -3,16 +3,16 @@ package htmlcheck;
 import org.jdom.Element;
 
 
-public class HtmlStyleError extends AssertionError {
+public class HtmlCheckError extends AssertionError {
 
 	private static final long serialVersionUID = 1L;
 	private Element element;
 
-	public HtmlStyleError(String message) {
+	public HtmlCheckError(String message) {
 		super(message);
 	}
 
-	public HtmlStyleError(String message, Element element) {
+	public HtmlCheckError(String message, Element element) {
 		super(message);
 		this.element = element;
 	}

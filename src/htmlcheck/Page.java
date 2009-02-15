@@ -2,12 +2,12 @@ package htmlcheck;
 
 import org.jdom.Element;
 
-public class StaticHtmlDriver {
+public class Page {
 
-	public StaticHtmlDriver(String page) {
+	public Page(String page) {
 	}
 
-	public String getDocument() {
+	public String getSource() {
 		return null;
 	}
 
