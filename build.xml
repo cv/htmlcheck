@@ -1,0 +1,28 @@
+<project basedir="." name="htmlcheck" default="test">
+
+    <path id="classpath">
+        <pathelement path="lib/jdom.jar" />
+        <pathelement path="lib/commons-lang-2.4.jar" />
+    </path>
+
+    <target name="clean">
+        <delete dir="build" />
+    </target>
+
+    <target name="compile" depends="clean">
+        <mkdir dir="build/classes" />
+        <javac debug="true" srcdir="src" destdir="build/classes" classpathref="classpath" source="1.5" target="1.5" encoding="utf-8" />
+        <jar destfile="build/htmlcheck.jar">
+            <manifest>
+                <attribute name="Revision" value="${git.revision" />
+            </manifest>
+            <fileset dir="build/classes" />
+        </jar>
+        <delete dir="build/classes" />
+    </target>
+    
+    <target name="test" depends="compile">
+        
+    </target>
+
+</project>
