@@ -1,6 +1,5 @@
 package htmlcheck.rules;
 
-
 import htmlcheck.*;
 
 import java.util.Arrays;

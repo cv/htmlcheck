@@ -1,6 +1,3 @@
-/**
- * 
- */
 package htmlcheck;
 
 import java.util.List;
