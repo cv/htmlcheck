@@ -32,6 +32,7 @@
         <junit printsummary="off" fork="true" haltonerror="false" haltonfailure="false" filtertrace="true" forkmode="once" >
             <classpath>
                 <path refid="test.classpath" />
+                <pathelement path="build/test-classes" />
             </classpath>
             <formatter type="xml" usefile="true" />
 
