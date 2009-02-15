@@ -1,0 +1,5 @@
+h1. HtmlCheck
+
+HtmlCheck is a small library that implements a series of opinionated checks against any given HTML document.
+
+The implementation is still very naive, and the rules have not evolved well enough for this to be used in production use in any project. However, they work well for us and should be easy to extend and adapt.

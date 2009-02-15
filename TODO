@@ -1,0 +1,4 @@
+* Add some sort of configuration mechanism
+* Add more rules
+* More descriptive error messages, and point out why a particular check is important
+* <add yours>
