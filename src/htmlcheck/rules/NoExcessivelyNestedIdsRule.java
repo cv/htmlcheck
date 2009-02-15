@@ -3,24 +3,17 @@
  */
 package htmlcheck.rules;
 
-import htmlcheck.HtmlCheck;
-import htmlcheck.HtmlCheckError;
+import htmlcheck.*;
 
 import java.util.List;
 
 import org.jdom.Element;
 import org.jdom.xpath.XPath;
 
-public class NoExcessivelyNestedIdsRule implements HtmlCheck.Rule {
+public class NoExcessivelyNestedIdsRule implements Rule {
 
-    /**
-	 * 
-	 */
 	private final HtmlCheck htmlCheck;
 
-	/**
-	 * @param htmlCheck
-	 */
 	public NoExcessivelyNestedIdsRule(HtmlCheck htmlCheck) {
 		this.htmlCheck = htmlCheck;
 	}
