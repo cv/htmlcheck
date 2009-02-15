@@ -7,6 +7,9 @@
 	<classpathentry kind="lib" path="lib/jtidy-8.0-SNAPSHOT.jar"/>
 	<classpathentry kind="lib" path="lib/junit-dep-4.5.jar"/>
 	<classpathentry kind="lib" path="lib/hamcrest-all-1.2RC2.jar"/>
+	<classpathentry kind="lib" path="lib/jaxen-core.jar"/>
+	<classpathentry kind="lib" path="lib/jaxen-jdom.jar"/>
+	<classpathentry kind="lib" path="lib/saxpath.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="output" path="bin"/>
+	<classpathentry kind="output" path="build/classes"/>
 </classpath>
