@@ -1,6 +1,6 @@
 package htmlcheck;
 
-import htmlcheck.rules.NoExcessivelyNestedIdsRule;
+import htmlcheck.rules.*;
 
 import java.io.IOException;
 import java.io.StringReader;
@@ -79,7 +79,7 @@ public class HtmlCheck {
 		return errors;
 	}
 
-	Document toLowerCase(Page browser) throws JDOMException, IOException {
+	public Document toLowerCase(Page browser) throws JDOMException, IOException {
 		return new SAXBuilder().build(new StringReader(browser.getSource().toLowerCase()));
 	}
 }
