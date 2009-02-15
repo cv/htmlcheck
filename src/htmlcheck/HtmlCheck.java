@@ -1,42 +1,21 @@
 package htmlcheck;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.StringReader;
-import java.io.StringWriter;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import htmlcheck.rules.NoExcessivelyNestedIdsRule;
+
+import java.io.*;
+import java.util.*;
 
 import org.apache.commons.lang.StringUtils;
+import org.jdom.*;
 import org.jdom.Attribute;
-import org.jdom.Document;
-import org.jdom.Element;
-import org.jdom.JDOMException;
 import org.jdom.input.SAXBuilder;
 import org.jdom.xpath.XPath;
-import org.w3c.tidy.Tidy;
-import org.w3c.tidy.TidyMessage;
-import org.w3c.tidy.TidyMessageListener;
+import org.w3c.tidy.*;
 import org.w3c.tidy.TidyMessage.Level;
 
 public class HtmlCheck {
 
-    class NoExcessivelyNestedIdsRule implements Rule {
-
-        public void addErrorsTo(List<HtmlCheckError> errors) throws Exception {
-            @SuppressWarnings("unchecked")
-            List<Element> elements = XPath.selectNodes(page.getRoot(), "//body//*[@id]/*[@id]/*[@id]/*[@id]/*[@id]");
-
-            for(Element element : elements) {
-                errors.add(new HtmlCheckError(String.format("ID ABUSE: %s has four or more parents which already have id attributes", toSelector(element))));
-            }
-        }
-    }
-
-	class BodyIdAttributeRequiredRule implements Rule {
+    class BodyIdAttributeRequiredRule implements Rule {
 
 		public void addErrorsTo(List<HtmlCheckError> errors) throws Exception {
 			Element body = (Element) XPath.selectSingleNode(page.getRoot(), "//body");
@@ -393,7 +372,7 @@ public class HtmlCheck {
 		}
 	}
 
-	interface Rule {
+	public interface Rule {
 		void addErrorsTo(List<HtmlCheckError> errors) throws Exception;
 	}
 
@@ -474,7 +453,7 @@ public class HtmlCheck {
 		return selector.toString();
 	}
 
-	private Page page;
+	public Page page;
 
 	public HtmlCheck(Page driver) {
 		this.page = driver;
@@ -508,7 +487,7 @@ public class HtmlCheck {
 			new NoEmptyListsRule().addErrorsTo(errors);
 			new NoInvalidAttributesInElementsRule().addErrorsTo(errors);
 			new W3CStandardsComplianceRule().addErrorsTo(errors);
-			new NoExcessivelyNestedIdsRule().addErrorsTo(errors);
+			new NoExcessivelyNestedIdsRule(this).addErrorsTo(errors);
 
 		} catch (Exception e) {
 			throw new RuntimeException(e);
