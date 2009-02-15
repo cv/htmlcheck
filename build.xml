@@ -1,13 +1,14 @@
 <project basedir="." name="htmlcheck" default="test">
 
     <path id="classpath">
-        <pathelement path="lib/jdom.jar" />
-        <pathelement path="lib/commons-lang-2.4.jar" />
-        <pathelement path="lib/jtidy-8.0-SNAPSHOT.jar" />
-        <pathelement path="lib/junit-dep-4.5.jar" />
-        <pathelement path="lib/hamcrest-all-1.2RC2.jar" />
+        <fileset dir="lib" includes="**/*.jar" />
     </path>
 
+    <path id="test.classpath">
+        <path refid="classpath" />
+        <pathelement path="build/htmlcheck.jar" />
+    </path>
+    
     <target name="clean">
         <delete dir="build" />
     </target>
@@ -22,10 +23,25 @@
             <fileset dir="build/classes" />
         </jar>
         <delete dir="build/classes" />
+        <mkdir dir="build/test-classes" />
+        <javac debug="true" srcdir="test" destdir="build/test-classes" classpathref="test.classpath" source="1.5" target="1.5" encoding="utf-8"/>
     </target>
     
     <target name="test" depends="compile">
-        
-    </target>
+        <mkdir dir="build/report" />
+        <junit printsummary="off" fork="true" haltonerror="false" haltonfailure="false" filtertrace="true" forkmode="once" >
+            <classpath>
+                <path refid="test.classpath" />
+            </classpath>
+            <formatter type="xml" usefile="true" />
 
+            <batchtest todir="build/report" failureproperty="test.failed">
+                <fileset dir="test">
+                    <include name="**/*Tests.java" />
+                </fileset>
+            </batchtest>
+        </junit>
+        <fail if="test.failed" message="tests failed" />
+    </target>
+    
 </project>
