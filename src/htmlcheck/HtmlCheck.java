@@ -28,7 +28,8 @@ public class HtmlCheck {
             new NoUpperCaseHrefOrSrcAttributesRule(page).addErrorsTo(errors);
             new MetaKeywordsWordLimitRule(page, 20).addErrorsTo(errors);
             new HyphenLimitInURLSegmentRule(page, 3).addErrorsTo(errors);
-            // new NoUnderscoresInUrlsRule().addErrorsTo(errors);
+            new NoUnderscoresInUrlsRule(page).addErrorsTo(errors);
+            new NoRelativeUrlsRule(page).addErrorsTo(errors);
             new HeaderWordLimitRule(page, "h1", 7).addErrorsTo(errors);
             new TitleLengthLimitRule(page, 66).addErrorsTo(errors);
             new MaximumNumberOfElementsRule(page, 1700).addErrorsTo(errors);

@@ -17,7 +17,7 @@ public class NoUnderscoresInUrlsRule implements Rule {
 
     public void addErrorsTo(List<HtmlCheckError> errors) throws Exception {
         @SuppressWarnings("unchecked")
-        List<Attribute> links = XPath.selectNodes(page.getRoot(), "//*/@src | //*/@href");
+        List<Attribute> links = XPath.selectNodes(page.getRoot(), "//*/@src | //*/@href[not(contains(@class, 'external')]");
 
         for (Attribute link : links) {
             if (link.getValue().contains("_")) {

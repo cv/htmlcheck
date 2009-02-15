@@ -7,7 +7,6 @@ import java.util.Collection;
 import java.util.List;
 
 import org.hamcrest.Matcher;
-import org.junit.Ignore;
 import org.junit.Test;
 
 public class HtmlCheckerTests {
@@ -58,7 +57,7 @@ public class HtmlCheckerTests {
 
     @Test
     public void shouldAllowScriptElementsWithSrcAttribute() {
-        assertThat(errorsOn("<html><head><title></title></head><body id=\"foo\"><script type=\"text/javascript\" src=\"foo.js\"></script></body></html>"), isEmpty());
+        assertThat(errorsOn("<html><head><title></title></head><body id=\"foo\"><script type=\"text/javascript\" src=\"http://foo.com/foo.js\"></script></body></html>"), isEmpty());
     }
 
     @Test
@@ -213,25 +212,22 @@ public class HtmlCheckerTests {
     }
 
     @Test
-    @Ignore("not implemented")
     public void shouldNotAllowRelativeUrlsInHrefAttributes() {
-        assertThat(errorsOn("<html><body id=\"foo\"><a href=\"adestination/to/somewhere\"></a></body></html>"), hasItem(new HtmlCheckError(
-                "html > body > a links to 'adestination/to/somewhere', which is not absolute")));
+        assertThat(errorsOn("<html><head><title></title></head><body id=\"foo\"><a href=\"adestination/to/somewhere\"></a></body></html>"), hasItem(new HtmlCheckError(
+                "INVALID URL: html > body#foo > a links to 'adestination/to/somewhere', which is not absolute")));
     }
 
     @Test
-    @Ignore("not implemented")
     public void shouldNotAllowRelativeUrlsInSrcAttributes() {
-        assertThat(errorsOn("<html><body id=\"foo\"><script src=\"/bar.js\"></script></body></html>"), hasItem(new HtmlCheckError(
-                "html > body > script links to 'adestination/to/somewhere', which is not absolute")));
+        assertThat(errorsOn("<html><head><title></title></head><body id=\"foo\"><script src=\"/bar.js\"></script></body></html>"), hasItem(new HtmlCheckError(
+                "INVALID URL: html > body#foo > script links to '/bar.js', which is not absolute")));
     }
 
     @Test
-    @Ignore("need to find out how to whitelist URLs that we don't want to check against, like ones pointing to other sites")
     public void shouldNotAllowUnderscoresInUrls() {
-        assertThat(errorsOn("<html><body id=\"foo\"><a href=\"http://foo.com/bar\"></a></body></html>"), isEmpty());
-        assertThat(errorsOn("<html><body id=\"foo\"><a href=\"http://foo.com/bar_quux\"></a></body></html>"), hasItem(new HtmlCheckError(
-                "html > body > a contains link with underscore in the URL: http://foo.com/bar_quux")));
+        assertThat(errorsOn("<html><head><title></title></head><body id=\"foo\"><a href=\"http://foo.com/bar\"></a></body></html>"), isEmpty());
+        assertThat(errorsOn("<html><head><title></title></head><body id=\"foo\"><a href=\"http://foo.com/bar_quux\"></a></body></html>"), hasItem(new HtmlCheckError(
+                "INVALID URL: html > body#foo > a contains link with underscore in the URL: http://foo.com/bar_quux")));
     }
 
     @Test
