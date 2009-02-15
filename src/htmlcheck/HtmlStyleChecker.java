@@ -77,12 +77,12 @@ public class HtmlStyleChecker {
 			this.limit = limit;
 		}
 
-		public void addErrorsTo(List<HtmlStyleError> errors) {
-			List<String> links = page.getElementValues("//*/@src");
-			links.addAll(page.getElementValues("//*/@href"));
+		public void addErrorsTo(List<HtmlStyleError> errors) throws Exception {
+			@SuppressWarnings("unchecked")
+			List<Attribute> links = XPath.selectNodes(page.getRoot(), "//*/@src | //*/@href");
 
-			for (String link : links) {
-				for (String segment : link.split("/")) {
+			for (Attribute link : links) {
+				for (String segment : link.getValue().split("/")) {
 					int count = 0;
 					for (char c : segment.toCharArray()) {
 						if (c == '-') {
@@ -123,9 +123,12 @@ public class HtmlStyleChecker {
 			this.limit = limit;
 		}
 
-		public void addErrorsTo(List<HtmlStyleError> errors) {
-			for (String keywords : page.getElementValues("//meta[@name='keywords']/@content")) {
-				String[] splitKeywords = keywords.split("\\W*,\\W*");
+		@SuppressWarnings("unchecked")
+		public void addErrorsTo(List<HtmlStyleError> errors) throws Exception {
+			List<Attribute> attributes = XPath.selectNodes(page.getRoot(), "//meta[@name='keywords']/@content");
+						
+			for (Attribute keywords : attributes) {
+				String[] splitKeywords = keywords.getValue().split("\\W*,\\W*");
 				if (splitKeywords.length > limit) {
 					errors.add(new HtmlStyleError(String.format("EXCESS KEYWORDS: meta keywords is over the %d phrases limit: %s", limit, Arrays.asList(splitKeywords))));
 				}
