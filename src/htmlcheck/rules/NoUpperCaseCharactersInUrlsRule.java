@@ -7,11 +7,11 @@ import java.util.List;
 import org.jdom.Attribute;
 import org.jdom.xpath.XPath;
 
-public class NoUpperCaseHrefOrSrcAttributesRule implements Rule {
+public class NoUpperCaseCharactersInUrlsRule implements Rule {
 
     private final Page page;
 
-    public NoUpperCaseHrefOrSrcAttributesRule(Page page) {
+    public NoUpperCaseCharactersInUrlsRule(Page page) {
         this.page = page;
     }
 

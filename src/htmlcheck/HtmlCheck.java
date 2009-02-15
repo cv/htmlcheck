@@ -25,7 +25,7 @@ public class HtmlCheck {
             new NoEmptyImageAltAttributeRule(page).addErrorsTo(errors);
             new NoDeveloperCommentsRule(page).addErrorsTo(errors);
             new NoInlineScriptElementRule(page).addErrorsTo(errors);
-            new NoUpperCaseHrefOrSrcAttributesRule(page).addErrorsTo(errors);
+            new NoUpperCaseCharactersInUrlsRule(page).addErrorsTo(errors);
             new MetaKeywordsWordLimitRule(page, 20).addErrorsTo(errors);
             new HyphenLimitInURLSegmentRule(page, 3).addErrorsTo(errors);
             new NoUnderscoresInUrlsRule(page).addErrorsTo(errors);
