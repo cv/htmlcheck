@@ -18,10 +18,6 @@ public class HtmlCheckerTests {
 		assertThat(errorsOn("<html><head><title></title></head><body id=\"foo\"><a href=\"http://adestination/to/somewhere\"></a></body></html>"), isEmpty());
 	}
 
-	private <E> Matcher<? super Collection<? extends E>> isEmpty() {
-		return hasSize(0);
-	}
-
 	@Test
 	public void shouldAllowAbsoluteUrlsInSrcAttributes() {
 		assertThat(errorsOn("<html><head><title></title></head><body id=\"foo\"><script type=\"text/javscrtipt\" src=\"http://foo.com/bar.js\"></script></body></html>"), isEmpty());
@@ -300,6 +296,10 @@ public class HtmlCheckerTests {
 		HtmlCheck v = new HtmlCheck(new Page(page));
 		List<HtmlCheckError> errors = v.getVerificationErrors();
 		return errors;
+	}
+
+	private <E> Matcher<? super Collection<? extends E>> isEmpty() {
+		return hasSize(0);
 	}
 
 }
