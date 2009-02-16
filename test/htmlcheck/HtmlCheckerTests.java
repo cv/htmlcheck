@@ -322,4 +322,9 @@ public class HtmlCheckerTests {
                 "INVALID ID: html > body#foo > div#bad id has an invalid id: bad id")));
     }
 
+    @Test
+    public void shouldNotAllowBreaksUnlessHackingAroundIE() throws Exception {
+        assertThat(errorsOn("<html><head><title></title></head><body id=\"foo\"><br class=\"ieHack\"/></body></html>"), isEmpty());
+        assertThat(errorsOn("<html><head><title></title></head><body id=\"foo\"><br/></body></html>"), hasItem(new HtmlCheckError("UNNECESSARY BREAK: html > body#foo > br only needs to be used if hacking around limitations in some versions of Internet Explorer. You can use the 'ieHack' class if that is the case")));        
+    }
 }

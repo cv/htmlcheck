@@ -9,6 +9,7 @@ import htmlcheck.rules.HyphenLimitInURLSegmentRule;
 import htmlcheck.rules.MaximumNumberOfElementsRule;
 import htmlcheck.rules.MetaKeywordsWordLimitRule;
 import htmlcheck.rules.NoBannedInlineCssStyleAttributeRule;
+import htmlcheck.rules.NoBreaksUnlessHackingAroundIERule;
 import htmlcheck.rules.NoDeveloperCommentsRule;
 import htmlcheck.rules.NoDivsWithSingleBlockLevelChildRule;
 import htmlcheck.rules.NoDuplicatedIdAttributesRule;
@@ -71,6 +72,7 @@ public class HtmlCheck {
             new NoInvalidAttributesInElementsRule(page).addErrorsTo(errors);
             new W3CStandardsComplianceRule(page).addErrorsTo(errors);
             new NoExcessivelyNestedIdsRule(page).addErrorsTo(errors);
+            new NoBreaksUnlessHackingAroundIERule(page).addErrorsTo(errors);
 
         } catch (Exception e) {
             throw new RuntimeException(e);
