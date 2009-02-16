@@ -327,4 +327,10 @@ public class HtmlCheckerTests {
         assertThat(errorsOn("<html><head><title></title></head><body id=\"foo\"><br class=\"ieHack\"/></body></html>"), isEmpty());
         assertThat(errorsOn("<html><head><title></title></head><body id=\"foo\"><br/></body></html>"), hasItem(new HtmlCheckError("UNNECESSARY BREAK: html > body#foo > br only needs to be used if hacking around limitations in some versions of Internet Explorer. You can use the 'ieHack' class if that is the case")));        
     }
+
+    @Test
+    public void shouldNotAllowUnexistentLabelForIdRule() throws Exception {
+        assertThat(errorsOn("<html><head><title></title></head><body id=\"foo\"><form><label for=\"good\"/><input id=\"good\"/></form></body></html>"), isEmpty());
+        assertThat(errorsOn("<html><head><title></title></head><body id=\"foo\"><form><label for=\"bad\"/><input id=\"good\"/></form></body></html>"), hasItem(new HtmlCheckError("ORPHAN LABEL: html > body#foo > form > label points to element with id 'bad', which doesn't exist in this document")));
+    }
 }

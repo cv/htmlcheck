@@ -24,6 +24,7 @@ import htmlcheck.rules.NoInvalidAttributesInElementsRule;
 import htmlcheck.rules.NoInvalidClassAttributesRule;
 import htmlcheck.rules.NoInvalidElementsInHeadRule;
 import htmlcheck.rules.NoInvalidIdAttributesRule;
+import htmlcheck.rules.NoOrphanLabelsRule;
 import htmlcheck.rules.NoRelativeUrlsRule;
 import htmlcheck.rules.NoUnderscoresInUrlsRule;
 import htmlcheck.rules.NoUpperCaseCharactersInUrlsRule;
@@ -73,6 +74,7 @@ public class HtmlCheck {
             new W3CStandardsComplianceRule(page).addErrorsTo(errors);
             new NoExcessivelyNestedIdsRule(page).addErrorsTo(errors);
             new NoBreaksUnlessHackingAroundIERule(page).addErrorsTo(errors);
+            new NoOrphanLabelsRule(page).addErrorsTo(errors);
 
         } catch (Exception e) {
             throw new RuntimeException(e);
