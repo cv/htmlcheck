@@ -1,4 +1,14 @@
 * Add some sort of configuration mechanism
+
 * Add more rules
+  * Stricter validation of forms
+    * All meaningful elements must have IDs
+    * Must have a submit button or image (even if hidden)
+    * Input elements must exist inside forms
+  * Demand at least one H1 and one or more H2 elements on the page
+  
 * More descriptive error messages, and point out why a particular check is important
+  * Point at the wiki for more info instead of bundling it with the lib?
+    * Only if Eclipse and IntelliJ let you click on URLs in stack traces
+
 * <add yours>
