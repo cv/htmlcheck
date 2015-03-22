@@ -3,10 +3,10 @@
  */
 package htmlcheck;
 
-import java.io.StringReader;
-
 import org.jdom.Element;
 import org.jdom.input.SAXBuilder;
+
+import java.io.StringReader;
 
 public class Page {
 

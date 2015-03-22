@@ -7,13 +7,12 @@ import htmlcheck.HtmlCheckError;
 import htmlcheck.Page;
 import htmlcheck.Rule;
 import htmlcheck.Selector;
-
-import java.util.Arrays;
-import java.util.List;
-
 import org.jdom.Attribute;
 import org.jdom.Element;
 import org.jdom.xpath.XPath;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class NoEventHandlerAttributesRule implements Rule {
 

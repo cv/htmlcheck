@@ -6,10 +6,9 @@ package htmlcheck.rules;
 import htmlcheck.HtmlCheckError;
 import htmlcheck.LinkCheckRule;
 import htmlcheck.Page;
+import org.jdom.Attribute;
 
 import java.util.List;
-
-import org.jdom.Attribute;
 
 public class HyphenLimitInURLSegmentRule extends LinkCheckRule {
 

@@ -6,12 +6,11 @@ package htmlcheck.rules;
 import htmlcheck.HtmlCheckError;
 import htmlcheck.Page;
 import htmlcheck.Rule;
+import org.jdom.Attribute;
+import org.jdom.xpath.XPath;
 
 import java.util.Arrays;
 import java.util.List;
-
-import org.jdom.Attribute;
-import org.jdom.xpath.XPath;
 
 public class MetaKeywordsWordLimitRule implements Rule {
 

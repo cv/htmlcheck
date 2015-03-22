@@ -3,15 +3,14 @@
  */
 package htmlcheck.rules;
 
-import java.util.List;
-
-import org.jdom.Element;
-import org.jdom.xpath.XPath;
-
 import htmlcheck.HtmlCheckError;
 import htmlcheck.Page;
 import htmlcheck.Rule;
 import htmlcheck.Selector;
+import org.jdom.Element;
+import org.jdom.xpath.XPath;
+
+import java.util.List;
 
 public class NoBreaksUnlessHackingAroundIERule implements Rule {
 
@@ -20,7 +19,7 @@ public class NoBreaksUnlessHackingAroundIERule implements Rule {
     public NoBreaksUnlessHackingAroundIERule(Page page) {
         this.page = page;
     }
-    
+
     public void addErrorsTo(List<HtmlCheckError> errors) throws Exception {
         @SuppressWarnings("unchecked")
         List<Element> breaks = XPath.selectNodes(page.getRoot(), "//br[not(contains(@class, 'ieHack'))]");

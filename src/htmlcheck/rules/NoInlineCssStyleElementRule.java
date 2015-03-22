@@ -7,12 +7,11 @@ import htmlcheck.HtmlCheckError;
 import htmlcheck.Page;
 import htmlcheck.Rule;
 import htmlcheck.Selector;
-
-import java.util.List;
-
 import org.apache.commons.lang.StringUtils;
 import org.jdom.Element;
 import org.jdom.xpath.XPath;
+
+import java.util.List;
 
 public class NoInlineCssStyleElementRule implements Rule {
 

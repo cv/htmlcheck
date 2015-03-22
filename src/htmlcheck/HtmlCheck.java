@@ -3,34 +3,7 @@
  */
 package htmlcheck;
 
-import htmlcheck.rules.BodyIdAttributeRequiredRule;
-import htmlcheck.rules.HeaderWordLimitRule;
-import htmlcheck.rules.HyphenLimitInURLSegmentRule;
-import htmlcheck.rules.MaximumNumberOfElementsRule;
-import htmlcheck.rules.MetaKeywordsWordLimitRule;
-import htmlcheck.rules.NoBannedInlineCssStyleAttributeRule;
-import htmlcheck.rules.NoBreaksUnlessHackingAroundIERule;
-import htmlcheck.rules.NoDeveloperCommentsRule;
-import htmlcheck.rules.NoDivsWithSingleBlockLevelChildRule;
-import htmlcheck.rules.NoDuplicatedIdAttributesRule;
-import htmlcheck.rules.NoEmptyImageAltAttributeRule;
-import htmlcheck.rules.NoEmptyImageSrcAttributeRule;
-import htmlcheck.rules.NoEmptyListsRule;
-import htmlcheck.rules.NoEventHandlerAttributesRule;
-import htmlcheck.rules.NoExcessivelyNestedIdsRule;
-import htmlcheck.rules.NoInlineCssStyleElementRule;
-import htmlcheck.rules.NoInlineScriptElementRule;
-import htmlcheck.rules.NoInvalidAttributesInElementsRule;
-import htmlcheck.rules.NoInvalidClassAttributesRule;
-import htmlcheck.rules.NoInvalidElementsInHeadRule;
-import htmlcheck.rules.NoInvalidIdAttributesRule;
-import htmlcheck.rules.NoOrphanLabelsRule;
-import htmlcheck.rules.NoRelativeUrlsRule;
-import htmlcheck.rules.NoUnderscoresInUrlsRule;
-import htmlcheck.rules.NoUpperCaseCharactersInUrlsRule;
-import htmlcheck.rules.NoXmlDeclarationAtBeginningOfFileRule;
-import htmlcheck.rules.TitleLengthLimitRule;
-import htmlcheck.rules.W3CStandardsComplianceRule;
+import htmlcheck.rules.*;
 
 import java.util.ArrayList;
 import java.util.List;

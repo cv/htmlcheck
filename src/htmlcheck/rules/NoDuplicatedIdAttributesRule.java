@@ -7,13 +7,12 @@ import htmlcheck.HtmlCheckError;
 import htmlcheck.Page;
 import htmlcheck.Rule;
 import htmlcheck.Selector;
+import org.jdom.Element;
+import org.jdom.xpath.XPath;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import org.jdom.Element;
-import org.jdom.xpath.XPath;
 
 public class NoDuplicatedIdAttributesRule implements Rule {
 

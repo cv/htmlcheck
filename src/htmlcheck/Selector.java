@@ -3,11 +3,17 @@
  */
 package htmlcheck;
 
-import java.util.Arrays;
-
 import org.jdom.Element;
 
+import java.util.Arrays;
+
 public class Selector {
+
+    private final String selector;
+
+    private Selector(String selector) {
+        this.selector = selector;
+    }
 
     public static Selector from(Element element) {
         StringBuilder selector = new StringBuilder();
@@ -32,12 +38,6 @@ public class Selector {
         }
 
         return new Selector(selector.toString());
-    }
-
-    private final String selector;
-
-    private Selector(String selector) {
-        this.selector = selector;
     }
 
     @Override

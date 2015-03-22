@@ -6,10 +6,9 @@ package htmlcheck.rules;
 import htmlcheck.HtmlCheckError;
 import htmlcheck.Page;
 import htmlcheck.Rule;
+import org.jdom.xpath.XPath;
 
 import java.util.List;
-
-import org.jdom.xpath.XPath;
 
 public class MaximumNumberOfElementsRule implements Rule {
 
