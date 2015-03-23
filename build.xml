@@ -3,47 +3,69 @@
     <property name="build.sysclasspath" value="last"/>
 
     <path id="classpath">
-        <fileset dir="lib" includes="**/*.jar" />
+        <fileset dir="lib" includes="**/*.jar"/>
     </path>
 
     <path id="test.classpath">
-        <path refid="classpath" />
-        <pathelement path="build/htmlcheck.jar" />
+        <path refid="classpath"/>
+        <pathelement path="build/htmlcheck.jar"/>
     </path>
 
     <target name="clean">
-        <delete dir="build" />
+        <delete dir="build"/>
     </target>
 
     <target name="compile">
-        <mkdir dir="build/classes" />
-        <javac debug="true" srcdir="src" destdir="build/classes" classpathref="classpath" source="1.5" target="1.5" encoding="utf-8" />
+        <mkdir dir="build/classes"/>
+        <javac debug="true"
+               srcdir="src"
+               destdir="build/classes"
+               classpathref="classpath"
+               source="1.5"
+               target="1.5"
+               encoding="utf-8"/>
+
         <jar destfile="build/htmlcheck.jar">
             <manifest>
-                <attribute name="Revision" value="${git.revision}" />
+                <attribute name="Revision" value="${git.revision}"/>
             </manifest>
-            <fileset dir="build/classes" />
+            <fileset dir="build/classes"/>
         </jar>
-        <mkdir dir="build/test-classes" />
-        <javac debug="true" srcdir="test" destdir="build/test-classes" classpathref="test.classpath" source="1.5" target="1.5" encoding="utf-8"/>
+
+        <mkdir dir="build/test-classes"/>
+
+        <javac debug="true"
+               srcdir="test"
+               destdir="build/test-classes"
+               classpathref="test.classpath"
+               source="1.5"
+               target="1.5"
+               encoding="utf-8"/>
     </target>
 
     <target name="test" depends="compile">
-        <mkdir dir="build/report" />
-        <junit printsummary="off" fork="true" haltonerror="false" haltonfailure="false" filtertrace="true" forkmode="once" >
+        <mkdir dir="build/report"/>
+        <junit printsummary="off"
+               fork="true"
+               haltonerror="false"
+               haltonfailure="false"
+               filtertrace="true"
+               forkmode="once">
+
             <classpath>
-                <path refid="test.classpath" />
-                <pathelement path="build/test-classes" />
+                <path refid="test.classpath"/>
+                <pathelement path="build/test-classes"/>
             </classpath>
-            <formatter type="xml" usefile="true" />
+            <formatter type="xml" usefile="true"/>
 
             <batchtest todir="build/report" failureproperty="test.failed">
                 <fileset dir="test">
-                    <include name="**/*Tests.java" />
+                    <include name="**/*Tests.java"/>
                 </fileset>
             </batchtest>
         </junit>
-        <fail if="test.failed" message="tests failed" />
+
+        <fail if="test.failed" message="tests failed"/>
     </target>
 
 </project>
