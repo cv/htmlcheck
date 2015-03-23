@@ -1,5 +1,7 @@
 <project basedir="." name="htmlcheck" default="test">
 
+    <property name="build.sysclasspath" value="last"/>
+
     <path id="classpath">
         <fileset dir="lib" includes="**/*.jar" />
     </path>
@@ -8,7 +10,7 @@
         <path refid="classpath" />
         <pathelement path="build/htmlcheck.jar" />
     </path>
-    
+
     <target name="clean">
         <delete dir="build" />
     </target>
@@ -25,7 +27,7 @@
         <mkdir dir="build/test-classes" />
         <javac debug="true" srcdir="test" destdir="build/test-classes" classpathref="test.classpath" source="1.5" target="1.5" encoding="utf-8"/>
     </target>
-    
+
     <target name="test" depends="compile">
         <mkdir dir="build/report" />
         <junit printsummary="off" fork="true" haltonerror="false" haltonfailure="false" filtertrace="true" forkmode="once" >
@@ -43,5 +45,5 @@
         </junit>
         <fail if="test.failed" message="tests failed" />
     </target>
-    
+
 </project>
